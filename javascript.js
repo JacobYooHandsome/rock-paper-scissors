@@ -54,20 +54,37 @@ function getPlayerChoice() {
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(playRound(getPlayerChoice(), getComputerChoice()));
-        console.log(`Player: ${playerScore} VS Computer: ${computerScore}`);
-    }
-    if (playerScore > computerScore) {
-        console.log("YOU HAVE BESTED THE COMPUTER!");
-    }
-    else if (computerScore < playerScore) {
-        console.log("YOU HAVE LOST TO THE COMPUTER!")
-    }
-    else {
-        console.log("Boring... You tied.")
+const display = document.querySelector('#score');
+const result = document.querySelector('#result');
+
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener('click', () => {
+    showRound(playRound(0, getComputerChoice()));
+});
+
+const paperBtn = document.querySelector('#paper');
+paperBtn.addEventListener('click', () => {
+    showRound(playRound(1, getComputerChoice()));
+});
+
+const scissorsBtn = document.querySelector("#scissors");
+scissorsBtn.addEventListener('click', () => {
+    showRound(playRound(2, getComputerChoice()));
+});
+
+function showRound(returnString) {
+    display.textContent = `[playerScore: ${playerScore}] VS [computerScore: ${computerScore}]`;
+    result.textContent = returnString;
+    if (playerScore == 5) {
+        display.textContent = `YOU WIN!`;
+        result.textContent = '';
+        playerScore = 0;
+        computerScore = 0;
+    } else if (computerScore == 5) {
+        display.textContent = 'YOU LOSE! :(';
+        result.textContent = '';
+        playerScore = 0;
+        computerScore = 0;
     }
 }
 
-game()

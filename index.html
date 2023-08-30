@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="format">
+    <div>
+        <h1>
+            ROCK, PAPER, SCISSORS!
+        </h1>
+        <div class="description">
+            First to Five Wins Takes it All!
+        </div>
+    </div>
     
+    <div class="buttons">
+        <button id="rock">
+            ROCK
+        </button>
+        <button id="paper"> 
+            PAPER
+        </button>
+        <button id="scissors">
+            SCISSORS
+        </button>
+    </div>
+    <div class="text">
+        <div id="score"></div>
+        <div id="result"></div>
+    </div>
 </body>
 </html>
